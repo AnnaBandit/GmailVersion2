@@ -4,10 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
@@ -31,23 +28,15 @@ public class SeleniumHelpers<T> {
     }
 
     public static WebElement $(String cssSelector, WebDriver driver){
-        return assertThat(visibilityOfElementLocated(By.cssSelector(cssSelector)), driver);
-    }
-
-    public static List<WebElement> $$(String cssSelector, WebDriver driver){
-        return driver.findElements(byCss(cssSelector));
-    }
-
-    public static List<WebElement> $$(By locator, WebDriver driver){
-        return driver.findElements(locator);
+        return assertThat(visibilityOfElementLocated(byCss(cssSelector)), driver);
     }
 
     public static By byCss(String cssSelector){
         return By.cssSelector(cssSelector);
     }
 
-    public static ExpectedCondition <WebElement> visible(final WebElement element) {
-        return ExpectedConditions.visibilityOf(element);
+    public static By byText(String text) {
+        return (By.xpath("//div[contains(text(), '" + text + "')]"));
     }
 
 }

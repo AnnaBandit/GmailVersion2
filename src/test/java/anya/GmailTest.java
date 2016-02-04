@@ -1,24 +1,20 @@
 package anya;
 
-import anya.testconfigs.BaseTest;
-import org.junit.Test;
-import anya.core.Configuration;
 import anya.pages.GmailMailsPage;
 import anya.pages.GmailMenuPage;
 import anya.pages.GmailPage;
 import anya.testData.Authentication;
+import anya.testconfigs.BaseTest;
+import org.junit.Test;
 
-import static anya.core.CustomConditions.textsOf;
-import static anya.core.SeleniumHelpers.assertThat;
 import static anya.core.CustomConditions.listNthElementHasText;
+import static anya.core.CustomConditions.textsOf;
+import static anya.core.CustomConditions.visible;
 import static anya.core.Helpers.generateUniquePhrase;
-import static anya.core.SeleniumHelpers.$;
+import static anya.core.SeleniumHelpers.assertThat;
 
 
 public class GmailTest extends BaseTest {
-    {
-        Configuration.timeout = 4;
-    }
 
     public String subject = generateUniquePhrase("Subject");
 
@@ -32,7 +28,7 @@ public class GmailTest extends BaseTest {
         gmail.login(Authentication.userName, Authentication.password);
 
         mails.send(Authentication.userName, subject);
-        $(mails.emailIsSentMessage, driver);
+        assertThat(visible(mails.emailIsSentMessage), driver);
         mails.refresh();
         assertThat(listNthElementHasText(mails.list, 0, subject), driver);
 

@@ -8,7 +8,7 @@ import anya.core.Configuration;
 
 public class BaseTest {
     {
-        Configuration.timeout =4;
+        Configuration.timeout = 7;
     }
 
     public static WebDriver driver;

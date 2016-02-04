@@ -1,28 +1,25 @@
 package anya.core;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static anya.core.SeleniumHelpers.$$;
-
 public class CustomConditions{
 
-    public static ExpectedCondition<WebElement> listNthElementHasText(final By elementsLocator, final int index, final String expectedText) {
+    public static ExpectedCondition<WebElement> listNthElementHasText(final List<WebElement> elements, final int index, final String expectedText) {
         return new ExpectedCondition<WebElement>() {
-            private List<WebElement> elements;
             private WebElement element;
             private String actualText;
 
             public WebElement apply(WebDriver driver) {
                 try {
-                    elements = $$(elementsLocator, driver);
                     element = elements.get(index);
                     actualText = element.getText();
+
                     return element.getText().contains(expectedText) ? element : null;
                 } catch (IndexOutOfBoundsException ex){
                     return null;
@@ -50,14 +47,13 @@ public class CustomConditions{
         };
     }
 
-    public static ExpectedCondition<List<WebElement>> textsOf(final By elementsLocator, final String... texts) {
+    public static ExpectedCondition<List<WebElement>> textsOf(final List<WebElement> elements, final String... texts) {
         return new ExpectedCondition<List<WebElement>>() {
             private List<WebElement> elements;
             private int listSize;
             private String[] actualTexts;
 
             public List<WebElement> apply(WebDriver driver) {
-                elements = $$(elementsLocator, driver);
                 listSize = elements.size();
                 actualTexts = new String[elements.size()];
 
@@ -84,6 +80,10 @@ public class CustomConditions{
                 return String.format("Expected texts: %s,\nActual texts: %s", Arrays.toString(texts), Arrays.toString(actualTexts));
             }
         };
+    }
+
+    public static ExpectedCondition <WebElement> visible(final WebElement element) {
+        return ExpectedConditions.visibilityOf(element);
     }
 
 }
