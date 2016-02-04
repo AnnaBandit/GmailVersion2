@@ -7,11 +7,8 @@ import anya.testData.Authentication;
 import anya.testconfigs.BaseTest;
 import org.junit.Test;
 
-import static anya.core.CustomConditions.listNthElementHasText;
-import static anya.core.CustomConditions.textsOf;
-import static anya.core.CustomConditions.visible;
+import static anya.core.CustomConditions.*;
 import static anya.core.Helpers.generateUniquePhrase;
-import static anya.core.SeleniumHelpers.assertThat;
 
 
 public class GmailTest extends BaseTest {
@@ -28,13 +25,13 @@ public class GmailTest extends BaseTest {
         gmail.login(Authentication.userName, Authentication.password);
 
         mails.send(Authentication.userName, subject);
-        assertThat(visible(mails.emailIsSentMessage), driver);
+        assertThat(visible(mails.emailIsSentMessage));
         mails.refresh();
-        assertThat(listNthElementHasText(mails.list, 0, subject), driver);
+        assertThat(listNthElementHasText(mails.list, 0, subject));
 
         menu.openSent();
-        assertThat(listNthElementHasText(mails.list, 0, subject), driver);
+        assertThat(listNthElementHasText(mails.list, 0, subject));
         mails.searchBySubject(subject);
-        assertThat(textsOf(mails.list, subject), driver, 10);
+        assertThat(textsOf(mails.list, subject), 10);
     }
 }

@@ -9,9 +9,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static anya.core.SeleniumHelpers.$;
-import static anya.core.SeleniumHelpers.byText;
-
 public class GmailMailsPage extends BasePage {
     @FindBy(css = "[role='main'] .UI tr")
     public List<WebElement> list;
@@ -24,18 +21,18 @@ public class GmailMailsPage extends BasePage {
     }
 
     public void send(String to, String subj) {
-        $(byText("COMPOSE"), driver).click();
-        $(By.name("to"), driver).sendKeys(to + Keys.ENTER);
-        $(By.name("subjectbox"), driver).sendKeys(subj);
-        $(byText("Send"), driver).click();
+        $(byText("COMPOSE")).click();
+        $(By.name("to")).sendKeys(to + Keys.ENTER);
+        $(By.name("subjectbox")).sendKeys(subj);
+        $(byText("Send")).click();
     }
 
     public void searchBySubject(String subject){
-        $(By.name("q"), driver).clear();
-        $(By.name("q"), driver).sendKeys("subject:" + subject + Keys.ENTER);
+        $(By.name("q")).clear();
+        $(By.name("q")).sendKeys("subject:" + subject + Keys.ENTER);
     }
 
     public void refresh(){
-        $(By.xpath(".//*[@title=\"Refresh\"]"), driver).click();
+        $(By.xpath(".//*[@title=\"Refresh\"]")).click();
     }
 }
