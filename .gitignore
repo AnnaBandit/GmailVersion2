@@ -1,0 +1,5 @@
+.idea
+*.iml
+target
+build
+/src/test/java/anya/testData
