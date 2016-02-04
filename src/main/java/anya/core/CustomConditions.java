@@ -49,7 +49,6 @@ public class CustomConditions{
 
     public static ExpectedCondition<List<WebElement>> textsOf(final List<WebElement> elements, final String... texts) {
         return new ExpectedCondition<List<WebElement>>() {
-            private List<WebElement> elements;
             private int listSize;
             private String[] actualTexts;
 
