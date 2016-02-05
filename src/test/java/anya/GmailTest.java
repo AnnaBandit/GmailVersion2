@@ -7,7 +7,8 @@ import anya.testData.Authentication;
 import anya.testconfigs.BaseTest;
 import org.junit.Test;
 
-import static anya.core.CustomConditions.*;
+import static anya.core.CustomConditions.listNthElementHasText;
+import static anya.core.CustomConditions.textsOf;
 import static anya.core.Helpers.generateUniquePhrase;
 
 

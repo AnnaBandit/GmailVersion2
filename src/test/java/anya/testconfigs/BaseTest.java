@@ -1,11 +1,11 @@
 package anya.testconfigs;
 
+import anya.core.Configuration;
 import anya.core.ConsiseAPI;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import anya.core.Configuration;
 
 public class BaseTest extends ConsiseAPI{
     {
@@ -16,17 +16,12 @@ public class BaseTest extends ConsiseAPI{
 
     @BeforeClass
     public static void setUp(){
-        driver = new FirefoxDriver();
+        setDriver(new FirefoxDriver());
     }
 
     @AfterClass
     public static void tearDown(){
-        driver.quit();
-    }
-
-    @Override
-    public WebDriver getDriver(){
-        return driver;
+        getDriver().quit();
     }
 
 }

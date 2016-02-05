@@ -4,17 +4,10 @@ import anya.core.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 public class GmailMailsPage extends BasePage {
-    @FindBy(css = "[role='main'] .UI tr")
-    public List<WebElement> list;
-
-    @FindBy(className="vh")
-    public WebElement emailIsSentMessage;
+    public By list = byCss("[role='main'] .UI tr");
+    public By emailIsSentMessage = By.className("vh");
 
     public GmailMailsPage(WebDriver driver){
         super(driver);

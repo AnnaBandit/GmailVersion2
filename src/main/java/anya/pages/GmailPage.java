@@ -12,8 +12,8 @@ public class GmailPage extends BasePage {
     }
 
     public void ensureIsOpened(){
-        if (!"GmailPage".equals(driver.getTitle())){
-            driver.get("http://gmail.com");
+        if (!"GmailPage".equals(getDriver().getTitle())){
+            getDriver().get("http://gmail.com");
         }
     }
 
