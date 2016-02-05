@@ -40,11 +40,11 @@ public class ConsiseAPI<T> {
     }
 
     public static WebElement $(String cssSelector){
-        return assertThat(visibilityOfElementLocated(byCss(cssSelector)));
+        return $(byCss(cssSelector));
     }
 
     public static List<WebElement> $$(String cssSelector){
-        return driver.findElements(byCss(cssSelector));
+        return $$(byCss(cssSelector));
     }
 
     public static List<WebElement> $$(By locator){

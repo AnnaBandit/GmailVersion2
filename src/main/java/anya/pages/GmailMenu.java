@@ -2,7 +2,7 @@ package anya.pages;
 
 import static anya.core.ConsiseAPI.$;
 
-public class GmailMenuPage{
+public class GmailMenu {
 
     public static void openInbox(){
         $("a[aria-label^='Inbox']").click();

@@ -5,10 +5,10 @@ import org.openqa.selenium.Keys;
 
 import static anya.core.ConsiseAPI.*;
 
-public class GmailPage{
+public class Gmail {
 
     public static void ensureGmailIsOpened(){
-        if (!"GmailPage".equals(title())){
+        if (!"Gmail".equals(title())){
             open("http://gmail.com");
         }
     }
