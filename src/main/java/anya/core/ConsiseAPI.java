@@ -63,4 +63,12 @@ public class ConsiseAPI<T> {
         return (By.xpath("//div[contains(text(), '" + text + "')]"));
     }
 
+    public static void open(String url){
+        driver.get(url);
+    }
+
+
+    public static String title(){
+        return driver.getTitle();
+    }
 }

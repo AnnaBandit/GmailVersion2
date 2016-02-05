@@ -1,19 +1,14 @@
 package anya.pages;
 
-import anya.core.BasePage;
-import org.openqa.selenium.WebDriver;
+import static anya.core.ConsiseAPI.$;
 
-public class GmailMenuPage extends BasePage {
+public class GmailMenuPage{
 
-    public GmailMenuPage(WebDriver driver){
-        super(driver);
-    }
-
-    public void openInbox(){
+    public static void openInbox(){
         $("a[aria-label^='Inbox']").click();
     }
 
-    public void openSent(){
+    public static void openSent(){
         $("a[title='Sent Mail']").click();
     }
 }
