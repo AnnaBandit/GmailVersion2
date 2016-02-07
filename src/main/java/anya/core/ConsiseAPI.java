@@ -62,7 +62,6 @@ public class ConsiseAPI<T> {
         driver.get(url);
     }
 
-
     public static String title(){
         return driver.getTitle();
     }
