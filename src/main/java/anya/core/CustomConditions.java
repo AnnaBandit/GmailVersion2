@@ -86,8 +86,8 @@ public class CustomConditions{
         };
     }
 
-    public static ExpectedCondition <WebElement> visible(final WebElement element) {
-        return ExpectedConditions.visibilityOf(element);
+    public static ExpectedCondition <WebElement> visible(final By locator) {
+        return ExpectedConditions.visibilityOfElementLocated(locator);
     }
 
 }

@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -23,24 +22,24 @@ public class ConsiseAPI<T> {
         ConsiseAPI.driver = driver;
     }
 
-    public static <V> V assertThat(ExpectedCondition<V> condition){
-        return new WebDriverWait(driver, Configuration.timeout).until(condition);
-    }
-
     public static <V> V assertThat(ExpectedCondition<V> condition, int timeout){
         return new WebDriverWait(driver, timeout).until(condition);
     }
 
-    public static WebElement $(WebElement element){
-        return assertThat(visibilityOf(element));
+    public static <V> V assertThat(ExpectedCondition<V> condition){
+        return assertThat(condition, Configuration.timeout);
+    }
+
+    public static WebElement $(String cssSelector){
+        return $(byCss(cssSelector));
     }
 
     public static WebElement $(By locator){
         return assertThat(visibilityOfElementLocated(locator));
     }
 
-    public static WebElement $(String cssSelector){
-        return $(byCss(cssSelector));
+    public static WebElement $(WebElement element){
+        return assertThat(visibilityOf(element));
     }
 
     public static List<WebElement> $$(String cssSelector){
@@ -55,10 +54,6 @@ public class ConsiseAPI<T> {
         return By.cssSelector(cssSelector);
     }
 
-    public static ExpectedCondition <WebElement> visible(final By locator) {
-        return ExpectedConditions.visibilityOfElementLocated(locator);
-    }
-
     public static By byText(String text) {
         return (By.xpath("//div[contains(text(), '" + text + "')]"));
     }
@@ -71,4 +66,6 @@ public class ConsiseAPI<T> {
     public static String title(){
         return driver.getTitle();
     }
+
+
 }

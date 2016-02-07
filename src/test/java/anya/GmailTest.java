@@ -9,8 +9,8 @@ import static anya.core.ConsiseAPI.visible;
 import static anya.core.CustomConditions.listNthElementHasText;
 import static anya.core.CustomConditions.textsOf;
 import static anya.core.Helpers.generateUniquePhrase;
-import static anya.pages.GmailMails.*;
-import static anya.pages.GmailMenu.openSent;
+import static anya.pages.Mails.*;
+import static anya.pages.Menu.openSent;
 import static anya.pages.Gmail.ensureGmailIsOpened;
 import static anya.pages.Gmail.login;
 

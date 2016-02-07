@@ -5,7 +5,7 @@ import org.openqa.selenium.Keys;
 
 import static anya.core.ConsiseAPI.*;
 
-public class GmailMails {
+public class Mails {
     public static By list = byCss("[role='main'] .UI tr");
     public static By emailIsSentMessage = By.className("vh");
 
