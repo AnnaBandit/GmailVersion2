@@ -7,7 +7,7 @@ import static anya.core.ConsiseAPI.*;
 
 public class Gmail {
 
-    public static void ensureGmailIsOpened(){
+    public static void ensureIsOpened(){
         if (!"Gmail".equals(title())){
             open("http://gmail.com");
         }
